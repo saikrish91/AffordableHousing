@@ -1,0 +1,49 @@
+<!doctype html>
+      <title>jQuery UI Slider functionality</title>
+      <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <!-- Javascript -->
+      <script>
+      $("#submit").click(function (e) {
+          
+      }
+         $(function() {
+            $( "#slider-3" ).slider({
+               range:true,
+               min: 0,
+               max: 50000,
+               values: [ 1000, 20000 ],
+               slide: function( event, ui ) {
+                  $( "#income" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+               }
+           });
+         $( "#income" ).val( "$" + $( "#slider-3" ).slider( "values", 0 ) +
+            " - $" + $( "#slider-3" ).slider( "values", 1 ) );
+         });
+      </script>
+            <h1>Please fill in the Questionaire</h1>
+
+   </head>
+   <body>
+      <!-- HTML --> 
+      <p>
+         <label for="income">Annual Income:</label>
+         <input type="text" id="income" 
+            style="border:0; color:#b9cd6d; font-weight:bold;">
+      </p>
+      <div id="slider-3"></div>
+      <h2>Select categry</h2>
+      <form action="">
+  <input type="radio" name="category" value="needs"> Special Needs &nbsp;&nbsp;
+  <input type="radio" name="category" value="citizen">Senior Citizen<br>
+</form>
+
+<h2>Do you have a job</h2>
+      <form action="">
+  <input type="radio" name="category" value="yes">Yes &nbsp;&nbsp;
+  <input type="radio" name="category" value="no">No<br>
+</form>
+<button class="btn btn-primary " id="subscribe" name="submit" type="button">Check Eligiblity</button>
+   </body>
+</html>
